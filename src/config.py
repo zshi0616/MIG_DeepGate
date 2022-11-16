@@ -93,10 +93,6 @@ def get_parse_args():
     parser.add_argument('--use_aig', action='store_true', 
                              help='whether to use AIG.')
     
-
-
-
-
     # model settings
     parser.add_argument('--arch', default='recgnn', choices=['recgnn', 'convgnn', 'dagconvgnn'],
                              help='model architecture. Currently support'

@@ -110,7 +110,7 @@ class BaseTrainer(object):
 
 
         ret = {k: v.avg for k, v in avg_loss_stats.items()}
-        if local_rank:
+        if local_rank == 0:
             bar.finish()
             ret['time'] = bar.elapsed_td.total_seconds() / 60.
         return ret, results
