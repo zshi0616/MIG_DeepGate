@@ -49,6 +49,7 @@ def get_parse_args():
     # dataset settings
     parser.add_argument('--data_dir', default='../data/random_circuits',
                              type=str, help='the path to the dataset')
+    parser.add_argument('--enable_aig', default=False, action='store_true')
     parser.add_argument('--test_data_dir', default=None,
                              type=str, help='the path to the testing dataset')
     parser.add_argument('--reload_dataset', default=False, action='store_true', help='Reload inmemory data')
@@ -210,7 +211,10 @@ def get_parse_args():
 
 
     # update data settings
-    args.gate_to_index = {'PI': 0, 'GND': 1, 'VDD': 2, 'MAJ': 3, 'NOT': 4, 'BUF': 5}
+    if args.enable_aig:
+        args.gate_to_index = {'PI': 0, 'AND': 1, 'NOT': 2}
+    else:
+        args.gate_to_index = {'PI': 0, 'GND': 1, 'VDD': 2, 'MAJ': 3, 'NOT': 4, 'BUF': 5}
     args.num_gate_types = len(args.gate_to_index)
     args.dim_node_feature = len(args.gate_to_index)
 
