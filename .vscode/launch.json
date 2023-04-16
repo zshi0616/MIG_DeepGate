@@ -13,11 +13,11 @@
             "args": [
                 "prob", 
                 "--exp_id", "default", 
-                "--data_dir", "./data/small/", 
+                "--data_dir", "./data/optaig/", 
                 "--num_rounds", "10", 
                 "--gpus", "-1", "--batch_size", "2", 
                 "--aggr_function", "aggnconv", 
-                "--wx_update", 
+                "--wx_update", "--enable_aig"
                 // "--reload_dataset", 
             ],
             "justMyCode": true
